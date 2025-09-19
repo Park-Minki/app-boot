@@ -8,6 +8,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import it.korea.app_boot.admin.dto.AdminUserDTO;
 import it.korea.app_boot.admin.dto.AdminUserSearchDTO;
@@ -22,6 +23,7 @@ public class AdminUserService {
 
     private final UserRepository userRepository;
 
+    @Transactional
     public Map<String, Object> getUserList(Pageable pageable) throws Exception {
         Map<String, Object> resultMap = new HashMap<>();
         
@@ -40,6 +42,7 @@ public class AdminUserService {
         return resultMap;
     }
 
+    @Transactional
     public Map<String, Object> getUserList(Pageable pageable, AdminUserSearchDTO searchDTO) throws Exception {
         Map<String, Object> resultMap = new HashMap<>();
         
@@ -63,9 +66,10 @@ public class AdminUserService {
 
         return resultMap;
     }
-
+    
+    @Transactional
     public AdminUserDTO getUser(String userId) throws Exception {
-        UserEntity user = userRepository.findById(userId).orElseThrow(() -> new RuntimeException("사용자 없음"));
+        AdminUserProjection user = userRepository.getUserById(userId).orElseThrow(() -> new RuntimeException("사용자 없음"));
         return AdminUserDTO.of(user);
     }
 }

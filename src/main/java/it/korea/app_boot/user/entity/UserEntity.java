@@ -28,12 +28,12 @@ public class UserEntity extends BaseEntity {
     private String addr;
     private String addrDetail;
 
-    @Column( columnDefinition = "CHAR(1)")
+    @Column(columnDefinition = "CHAR(1)")
     private String useYn;
-    @Column( columnDefinition = "CHAR(1)")
+    @Column(columnDefinition = "CHAR(1)")
     private String delYn;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name="user_role")
     private UserRoleEntity role;
 }

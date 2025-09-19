@@ -58,6 +58,26 @@ public class AdminUserDTO {
                 .build();
     }
 
+    public static AdminUserDTO of(AdminUserProjection entity) {
+        return AdminUserDTO
+                .builder()
+                .userId(entity.getUserId())
+                .userName(entity.getUserName())
+                .birth(entity.getBirth())
+                .gender(entity.getGender())
+                .phone(entity.getPhone())
+                .email(entity.getEmail())
+                .addr(entity.getAddr())
+                .addrDetail(entity.getAddrDetail())
+                .useYn(entity.getUseYn())
+                .delYn(entity.getDelYn())
+                .createDate(entity.getCreateDate())
+                .updateDate(entity.getUpdateDate())
+                .userRole(entity.getRoleId())
+                .roleName(entity.getRoleName())
+                .build();
+    }
+
     public static UserEntity to(AdminUserDTO dto) {
         UserEntity entity = new UserEntity();
         entity.setUserId(dto.getUserId());

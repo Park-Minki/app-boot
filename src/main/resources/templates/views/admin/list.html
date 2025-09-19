@@ -135,7 +135,7 @@ layout:decorate="~{layout/main_layout}">
                 pageArea.append(data.pageHTML);
             }
             const goDetail = (userId) => {
-
+                location.href = `/admin/info?userId=${userId}`;
             }
 
             const search = () => {
