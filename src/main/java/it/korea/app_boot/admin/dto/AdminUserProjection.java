@@ -1,10 +1,13 @@
 package it.korea.app_boot.admin.dto;
 
+import java.time.LocalDateTime;
+
 public interface AdminUserProjection {
+
     String getUserId();
     String getUserName();
     String getBirth();
-    Stirng getGender();
+    String getGender();
     String getPhone();
     String getEmail();
     String getAddr();
@@ -15,4 +18,5 @@ public interface AdminUserProjection {
     LocalDateTime getUpdateDate();
     String getRoleId();
     String getRoleName();
+
 }
