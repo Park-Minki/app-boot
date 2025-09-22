@@ -56,4 +56,12 @@ public class AdminUserController {
         }
         return view;
     }
+
+    @GetMapping("/write")
+    public ModelAndView adminUserWriteView() {
+        ModelAndView view = new ModelAndView();
+        view.setViewName("views/admin/wirte");
+        
+        return view;
+    }
 }
